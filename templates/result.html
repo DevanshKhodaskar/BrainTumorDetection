@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segmentation Result</title>
+</head>
+<body>
+    <h2>Segmented Image</h2>
+    <img src="{{ url_for('get_result_image', filename=image_file) }}" alt="Segmented Image">
+    
+    <h3>Detections:</h3>
+    <ul>
+        {% for detection in detections %}
+            <li>{{ detection.class }} - Confidence: {{ detection.confidence }}%</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+    <a href="/">Upload Another Image</a>
+</body>
+</html>
